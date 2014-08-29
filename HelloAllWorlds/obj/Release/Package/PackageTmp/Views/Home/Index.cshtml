@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @ViewBag.message
+
+    Other Views:
+
+    <ul>
+        <li><a href="/StaticHtml.html" target="_blank">Static HTML</a></li>
+        <li><a href="/RazorView.cshtml" target="_blank">Razor</a></li>
+        <li><a href="/WebForm.aspx" target="_blank">Web Form</a></li>
+        <li><a href="#" id="webApi">Web API (via jQuery)</a></li>
+        <li><a href="hello.asp" target="_blank">Classic ASP</a></li>
+        <li><a href="hello.js" target="_blank">Node.js</a></li>
+        <li><a href="hello.php" target="_blank">PHP</a></li>
+    </ul>
+
+    <script src="Scripts/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#webApi').click(function () {
+                $.get('/api/values', function (results) {
+                    $(results).each(function (i, value) {
+                        alert(value);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
